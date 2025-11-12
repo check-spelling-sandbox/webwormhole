@@ -397,7 +397,7 @@ func server(args ...string) {
 		// resource naming scheme and change this to immutable, but until then disable caching.
 		w.Header().Set("Cache-Control", "no-cache")
 
-		// Set HSTS header for 2 years on HTTPS connections.
+		// Set STS header for 2 years on HTTPS connections.
 		if *httpsaddr != "" {
 			w.Header().Set("Strict-Transport-Security", "max-age=63072000")
 		}
