@@ -29,7 +29,7 @@ import (
 	"webwormhole.io/wormhole"
 )
 
-// slotTimeout is the the maximum amount of time a client is allowed to
+// slotTimeout is the maximum amount of time a client is allowed to
 // hold a slot.
 const slotTimeout = 12 * time.Hour
 
@@ -107,7 +107,7 @@ var stunServers []webrtc.ICEServer
 // freeslot tries to find an available numeric slot, favouring smaller numbers.
 // This assume slots is locked.
 func freeslot() (slot string, ok bool) {
-	// Assuming varint encoding, we first try for one byte. That's 7 bits in varint.
+	// Assuming varint encoding, we first try for one byte. That's seven bits in varint.
 	for i := 0; i < 64; i++ {
 		s := strconv.Itoa(rand.Intn(1 << 7))
 		if _, ok := slots.m[s]; !ok {
@@ -397,7 +397,7 @@ func server(args ...string) {
 		// resource naming scheme and change this to immutable, but until then disable caching.
 		w.Header().Set("Cache-Control", "no-cache")
 
-		// Set HSTS header for 2 years on HTTPS connections.
+		// Set STS header for 2 years on HTTPS connections.
 		if *httpsaddr != "" {
 			w.Header().Set("Strict-Transport-Security", "max-age=63072000")
 		}

@@ -32,7 +32,7 @@ class Wormhole {
             console.log("requesting slot");
             this.state = this.statePlayer1;
         }
-        // There are 3 events that we need to synchronise with the caller on:
+        // There are three events that we need to synchronise with the caller on:
         //   1. we got the first message from the signalling server.
         //        We now have the slot number and the ICE server details, so we can
         //        create the wormhole code and PeerConnection object, and pass them back
@@ -67,7 +67,7 @@ class Wormhole {
         this.callback(this.pc);
         const msgA = webwormhole.start(this.pass);
         if (!msgA) {
-            return this.fail("could nnt generate A's PAKE message");
+            return this.fail("could not generate A's PAKE message");
         }
         console.log("message a:", msgA);
         this.ws.send(msgA);
@@ -241,7 +241,7 @@ class Wormhole {
         const stats = await this.pc.getStats();
         let id;
         stats.forEach((s) => {
-            // s.selected gives more confidenece than s.state == "succeeded", but Chrome does
+            // s.selected gives more confidence than s.state == "succeeded", but Chrome does
             // not implement it.
             if (s.type === "candidate-pair" &&
                 s.state === "succeeded") {

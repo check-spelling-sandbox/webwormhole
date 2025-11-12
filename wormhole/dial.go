@@ -8,7 +8,7 @@
 // (https://tools.ietf.org/html/rfc5763).
 //
 // This package removes the signalling server from the trust model by using a
-// PAKE to estabish the authenticity of the WebRTC metadata. In other words,
+// PAKE to establish the authenticity of the WebRTC metadata. In other words,
 // it's a clone of Magic Wormhole made to use WebRTC as the transport.
 //
 // The protocol requires a signalling server that facilitates exchanging
@@ -99,7 +99,7 @@ var (
 	// version of the signalling protocol.
 	ErrBadVersion = errors.New("bad version")
 
-	// ErrBadVersion is returned when the the peer on the same slot uses a different
+	// ErrBadVersion is returned when the peer on the same slot uses a different
 	// password.
 	ErrBadKey = errors.New("bad key")
 
@@ -255,7 +255,7 @@ func writeBase64(ws *websocket.Conn, p []byte) error {
 }
 
 // readInitMsg reads the first message the signalling server sends over
-// the WebSocket connection, which has metadata includign assigned slot
+// the WebSocket connection, which has metadata including assigned slot
 // and ICE servers to use.
 func readInitMsg(ws *websocket.Conn) (slot string, iceServers []webrtc.ICEServer, err error) {
 	msg := struct {
@@ -327,7 +327,7 @@ func (c *Wormhole) newPeerConnection(ice []webrtc.ICEServer) error {
 	return nil
 }
 
-// IsRelay returns whether this connection is over a TURN relay or not.
+// IsRelay returns whether or not this connection is over a TURN relay.
 func (c *Wormhole) IsRelay() bool {
 	stats := c.pc.GetStats()
 	for _, s := range stats {

@@ -543,11 +543,11 @@ async function connect() {
 
 		const fingerprint = await w.dial();
 
-		// To make it more likely to spot the 1 in 2^16 chance of a successful
+		// To make it more likely to spot the one in 2^16 chance of a successful
 		// MITM password guess, we can compare a fingerprint derived from the PAKE
-		// key. The 7 words visible on the tooltip of the input box should match on
+		// key. The seven words visible on the tooltip of the input box should match on
 		// both side.
-		// We also use the first 3 bits of it to choose the background colour, so
+		// We also use the first three bits of it to choose the background colour, so
 		// that should match on both sides as well.
 		const encodedfp = webwormhole.encode(0, fingerprint.subarray(1));
 		phraseInput.title = encodedfp.substring(encodedfp.indexOf("-") + 1);
@@ -771,7 +771,7 @@ function browserhacks() {
 	) {
 		hacks.noblob = true;
 		hacks.nosw = true;
-		console.log("quirks: using ios12 dataurl hack");
+		console.log("quirks: using ios12 data-url hack");
 	}
 
 	// Work around iOS trying to connect when the link is previewed.
@@ -883,7 +883,7 @@ async function init() {
 	infoBox = document.getElementById("info") as HTMLElement;
 	autocompleteBox = document.getElementById("autocomplete") as HTMLElement;
 
-	// Friendly error message and bail out if things are clearely not going to work.
+	// Friendly error message and bail out if things are clearly not going to work.
 	if (hacks.browserunsupported) {
 		infoBox.innerText =
 			"Browser missing required feature. This application needs support for WebSockets, WebRTC, and WebAssembly.";

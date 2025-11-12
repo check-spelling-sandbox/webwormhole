@@ -6,7 +6,7 @@
 const sw = self as ServiceWorkerGlobalScope & typeof globalThis;
 
 // There can be multiple clients (pages) receiving files, so they generate an id
-// and here we store info assosiated with each transfer.
+// and here we store info associated with each transfer.
 const streams = new Map();
 
 class Stream {
@@ -158,7 +158,7 @@ async function streamUpload(e: FetchEvent) {
 	}
 
 	// ReadableStream is transferable on Chrome at the time of writing. Since Share
-	// Target also only works on Chome, we can use this and avoid the complexity of
+	// Target also only works on Chrome, we can use this and avoid the complexity of
 	// chunking over postMessage (like we do with downloads) or having to read the
 	// whole file into memory.
 	// TypeScript doesn't know that ReadableStream is transferable, hence body as
